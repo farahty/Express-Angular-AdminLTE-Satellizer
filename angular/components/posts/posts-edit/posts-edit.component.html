@@ -1,0 +1,45 @@
+<section class="content-header">
+    <h1>Posts Edit</h1> <small>description</small>
+    <ol class="breadcrumb">
+        <li><a ui-sref="app.home"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"> <a ui-sref="app.level_list"><i class="fa fa-level-up"></i> Posts Edit</a></li>
+        <li class="active">Post Edit</li>
+    </ol>
+</section>
+<section class="content">
+    <form ng-submit="vm.submit()">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Posts Edit</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                        class="fa fa-minus"></i>
+                </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <div class="form-group" ng-class="(vm.errors.title)? 'has-error' : ''">
+                    <label for="title">Title : </label>
+                    <input type="text" class="form-control" ng-model="vm.post.title" id="title">
+                    <span class="help-block" ng-if="vm.errors.title">
+                        {{vm.errors.title.message}}
+                    </span>
+                </div>
+            </div>
+            <div class="box-body">
+                <div class="form-group" ng-class="(vm.errors.body)? 'has-error' : ''">
+                    <label for="body">Body : </label>
+                    <textarea class="form-control" id="body" rows="3" ng-model="vm.post.body"></textarea>
+                    <span class="help-block" ng-if="vm.errors.body">
+                        {{vm.errors.body.message}}
+                    </span>
+                </div>
+            </div>
+            <div class="box-footer">
+                <a ui-sref="app.post_list" class="btn btn-danger"><i class="fa fa-angle-double-left"></i> Back</a>
+                <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Save
+                </button>
+            </div>
+        </div>
+    </form>
+</section>

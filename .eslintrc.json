@@ -1,0 +1,34 @@
+{
+  "extends": "eslint:recommended",
+  "plugins": ["angular"],
+  "rules": {
+    "angular/no-service-method": 0,
+    "no-console": [
+      true,
+      "debug",
+      "info",
+      "time",
+      "timeEnd",
+      "trace"
+    ]
+  },
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "ecmaFeatures": {
+    "modules": true
+  },
+  "globals": {
+    "angular": true,
+    "module": true,
+    "inject": true,
+    "jQuery": true,
+    "$": true,
+    "swal": true,
+    "ngDescribe": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  }
+}

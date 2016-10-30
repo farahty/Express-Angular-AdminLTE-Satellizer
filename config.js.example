@@ -1,0 +1,23 @@
+module.exports = {
+    secret: 'GGGKGJG',
+    database: 'mongodb://localhost/satellizer',
+    facebook: {
+        clientID: 'HHHHHHH',
+        clientSecret: 'HHHHHHH',
+        callbackURL: 'http://localhost:3000/auth/facebook/callback/#',
+        profileFields : ['id', 'displayName', 'photos', 'email', 'first_name', 'last_name',
+            'age_range', 'link', 'gender', 'locale', 'timezone', 'updated_time', 'verified'
+        ]
+    },
+    github: {
+        clientID: 'HHHHHH',
+        clientSecret: 'HHHHHHH',
+        callbackURL: 'http://localhost:3000/auth/github/callback/'
+    },
+    local: {
+        usernameField : 'email',
+        passwordField : 'password',
+        passReqToCallback : true
+    }
+
+};

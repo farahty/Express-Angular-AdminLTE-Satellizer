@@ -1,0 +1,61 @@
+<section class="content-header">
+    <h1>PostsList</h1> <small>description</small>
+    <ol class="breadcrumb">
+        <li><a ui-sref="app.home"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"> <a ui-sref="app.level_list"><i class="fa fa-level-up"></i> PostsLists</a></li>
+        <li class="active">PostsList</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">PostsList title</h3>
+            <div class="box-tools pull-right">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label class="sr-only" for="search">Amount (in dollars)</label>
+                        <div class="input-group">
+                            <input type="text" ng-model="vm.search" class="form-control input-sm" id="search" placeholder="Search ...">
+                            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="box-body">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Body</th>
+                        <th>Auther</th>
+                        <th>Created</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="post in vm.posts | filter:vm.search">
+                        <td><a ui-sref="app.post_show({id:post._id})">{{ post.title }}</a></td>
+                        <td>{{ post.body }}</td>
+                        <td>{{ post.author.name }}</td>
+                        <td>{{ post.created_at | date:'d/M/yyyy'}}</td>
+                        <td>
+                            <a class="btn btn-xs btn-warning" ui-sref="app.post_edit({id:post._id})">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            &nbsp
+                            <button class="btn btn-xs btn-danger" ng-click="vm.delete(post._id)">
+                                <i class="fa fa-trash-o"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="box-footer">
+            <a class="btn btn-success btn-xs pull-right" ui-sref="app.post_create">
+                <i class="fa fa-plus"></i> Add New
+            </a>
+        </div>
+    </div>
+</section>
